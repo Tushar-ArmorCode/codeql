@@ -12,6 +12,6 @@ codeql_csharp_binary(
     deps = [
         "//csharp/autobuilder/Semmle.Autobuild.Shared",
         "//csharp/extractor/Semmle.Util",
-        "@paket.csharp_extractor//microsoft.build",
+        "@paket.main//microsoft.build",
     ],
 )

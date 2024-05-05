@@ -11,6 +11,6 @@ codeql_csharp_library(
     visibility = ["//csharp:__subpackages__"],
     deps = [
         "//csharp/extractor/Semmle.Util",
-        "@paket.csharp_extractor//microsoft.codeanalysis.csharp",
+        "@paket.main//microsoft.codeanalysis.csharp",
     ],
 )

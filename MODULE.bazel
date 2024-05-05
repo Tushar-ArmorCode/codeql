@@ -33,8 +33,8 @@ use_repo(dotnet, "dotnet_toolchains")
 
 register_toolchains("@dotnet_toolchains//:all")
 
-csharp_extractor_extension = use_extension("//csharp/extractor:paket.csharp_extractor_extension.bzl", "csharp_extractor_extension")
-use_repo(csharp_extractor_extension, "paket.csharp_extractor")
+csharp_main_extension = use_extension("//csharp:paket.main_extension.bzl", "main_extension")
+use_repo(csharp_main_extension, "paket.main")
 
 pip = use_extension("@rules_python//python/extensions:pip.bzl", "pip")
 pip.parse(

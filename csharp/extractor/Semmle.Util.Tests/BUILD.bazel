@@ -1,8 +1,3 @@
-load(
-    "@rules_dotnet//dotnet:defs.bzl",
-    "csharp_test",
-)
-
 # csharp_test(
 #     name = "Semmle.Util.Tests",
 #     srcs = glob([
@@ -12,9 +7,9 @@ load(
 #     target_frameworks = ["net8.0"],
 #     deps = [
 #         "//csharp/extractor/Semmle.Util",
-#         "@paket.csharp_extractor//microsoft.net.test.sdk",
-#         "@paket.csharp_extractor//newtonsoft.json",
-#         "@paket.csharp_extractor//xunit",
-#         "@paket.csharp_extractor//xunit.runner.visualstudio",
+#         "@paket.main//microsoft.net.test.sdk",
+#         "@paket.main//newtonsoft.json",
+#         "@paket.main//xunit",
+#         "@paket.main//xunit.runner.visualstudio",
 #     ],
 # )

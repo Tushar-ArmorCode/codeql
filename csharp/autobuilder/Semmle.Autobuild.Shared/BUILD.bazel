@@ -11,6 +11,6 @@ codeql_csharp_library(
     visibility = ["//visibility:public"],
     deps = [
         "//csharp/extractor/Semmle.Util",
-        "@paket.csharp_extractor//microsoft.build",
+        "@paket.main//microsoft.build",
     ],
 )

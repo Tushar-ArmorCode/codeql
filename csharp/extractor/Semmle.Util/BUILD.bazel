@@ -12,7 +12,7 @@ codeql_csharp_library(
     ]),
     visibility = ["//visibility:public"],
     deps = [
-        "@paket.csharp_extractor//mono.posix.netstandard",
-        "@paket.csharp_extractor//newtonsoft.json",
+        "@paket.main//mono.posix.netstandard",
+        "@paket.main//newtonsoft.json",
     ],
 )

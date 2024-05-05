@@ -13,6 +13,6 @@ codeql_csharp_library(
         "//csharp/extractor/Semmle.Extraction.CSharp.DependencyFetching",
         "//csharp/extractor/Semmle.Extraction.CSharp.Util",
         "//csharp/extractor/Semmle.Util",
-        "@paket.csharp_extractor//microsoft.codeanalysis.csharp",
+        "@paket.main//microsoft.codeanalysis.csharp",
     ],
 )
