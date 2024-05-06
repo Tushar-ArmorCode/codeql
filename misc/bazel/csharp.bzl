@@ -13,10 +13,15 @@ def codeql_csharp_library(name, **kwargs):
 def codeql_csharp_binary(name, **kwargs):
     nullable = kwargs.pop("nullable", "enable")
     visibility = kwargs.pop("visibility", ["//visibility:public"])
+    resources = kwargs.pop("resources", [])
+
+    # the entry assembly always has the git info embedded
+    resources.append("@semmle_code//:git_info")
+
     target_frameworks = kwargs.pop("target_frameworks", [TARGET_FRAMEWORK])
     csharp_binary_target = "bin/" + name
     publish_binary_target = "publish/" + name
-    csharp_binary(name = csharp_binary_target, nullable = nullable, target_frameworks = target_frameworks, **kwargs)
+    csharp_binary(name = csharp_binary_target, nullable = nullable, target_frameworks = target_frameworks, resources = resources, **kwargs)
     publish_binary(
         name = publish_binary_target,
         binary = csharp_binary_target,
@@ -28,7 +33,6 @@ def codeql_csharp_binary(name, **kwargs):
                 "//conditions:default": "",
             },
         ),
-        resources = ["@semmle_code//:git_info"], # the running assembly always has the git info embedded
     )
 
     # we need to declare individual zip targets for each binary, as `self_contained=True` means that every binary target
