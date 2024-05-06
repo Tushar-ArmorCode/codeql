@@ -8,6 +8,7 @@ codeql_csharp_binary(
     srcs = glob([
         "*.cs",
     ]),
+    resources = ["@semmle_code//:git_info"],
     visibility = ["//csharp:__pkg__"],
     deps = [
         "//csharp/extractor/Semmle.Extraction.CSharp",

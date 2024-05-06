@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using Semmle.Util.Logging;
-
+using System.Reflection;
 using CompilationInfo = (string key, string value);
 
 namespace Semmle.Extraction
@@ -102,7 +102,7 @@ namespace Semmle.Extraction
 
         public ILogger Logger { get; private set; }
 
-        public static string Version => $"";
+        public static string Version => string.Join("", Assembly.GetExecutingAssembly().GetManifestResourceNames());
 
         public PathTransformer PathTransformer { get; }
     }
