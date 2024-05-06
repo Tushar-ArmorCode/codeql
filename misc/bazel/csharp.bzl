@@ -28,6 +28,7 @@ def codeql_csharp_binary(name, **kwargs):
                 "//conditions:default": "",
             },
         ),
+        resources = ["@semmle_code//:git_info"], # the running assembly always has the git info embedded
     )
 
     # we need to declare individual zip targets for each binary, as `self_contained=True` means that every binary target
