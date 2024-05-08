@@ -6,6 +6,11 @@ using System;
 
 /// <summary>
 /// A testrunner for xunit tests we can use with bazel.
+/// This file is compiled as part of each test target, due to limitations of the bazel `csharp_test`
+/// target: It cannot pull in the main method from a different target.
+/// Note: We're running the tests in parallel, which currently goes counter to the bazel execution model,
+/// as bazel doesn't expect us to spawm more than one active thread. This for now works fine in practice,
+/// as the tests finish quickly. If this ever becomes a problem, we need to implement the bazel sharding protocol explicitly.
 /// </summary>
 public class Testrunner
 {

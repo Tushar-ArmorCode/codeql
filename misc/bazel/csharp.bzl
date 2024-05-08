@@ -1,4 +1,4 @@
-load("@rules_dotnet//dotnet:defs.bzl", "csharp_binary", "csharp_library", "publish_binary")
+load("@rules_dotnet//dotnet:defs.bzl", "csharp_binary", "csharp_library", "csharp_test", "publish_binary")
 load("@rules_pkg//pkg:mappings.bzl", "strip_prefix")
 load("@semmle_code//:dist.bzl", "pack_zip")
 load("//:defs.bzl", "codeql_platform")
@@ -9,6 +9,28 @@ def codeql_csharp_library(name, **kwargs):
     nullable = kwargs.pop("nullable", "enable")
     target_frameworks = kwargs.pop("target_frameworks", [TARGET_FRAMEWORK])
     csharp_library(name = name, nullable = nullable, target_frameworks = target_frameworks, **kwargs)
+
+def codeql_xunit_test(name, **kwargs):
+    nullable = kwargs.pop("nullable", "enable")
+    target_frameworks = kwargs.pop("target_frameworks", [TARGET_FRAMEWORK])
+
+    srcs = kwargs.pop("srcs", []) + [
+        "//csharp/extractor/TestRunner:TestRunner.cs",
+    ]
+
+    deps = kwargs.pop("deps", []) + [
+        "@paket.main//xunit",
+        "@paket.main//xunit.runner.utility",
+    ]
+
+    csharp_test(
+        name = name,
+        deps = deps,
+        srcs = srcs,
+        nullable = nullable,
+        target_frameworks = target_frameworks,
+        **kwargs
+    )
 
 def codeql_csharp_binary(name, **kwargs):
     nullable = kwargs.pop("nullable", "enable")
@@ -21,7 +43,7 @@ def codeql_csharp_binary(name, **kwargs):
     target_frameworks = kwargs.pop("target_frameworks", [TARGET_FRAMEWORK])
     csharp_binary_target = "bin/" + name
     publish_binary_target = "publish/" + name
-    csharp_binary(name = csharp_binary_target, nullable = nullable, target_frameworks = target_frameworks, resources = resources, **kwargs)
+    csharp_binary(name = csharp_binary_target, nullable = nullable, target_frameworks = target_frameworks, resources = resources, visibility = visibility, **kwargs)
     publish_binary(
         name = publish_binary_target,
         binary = csharp_binary_target,
