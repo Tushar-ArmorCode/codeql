@@ -603,3 +603,4 @@ NUGET
       NETStandard.Library (>= 1.6.1)
       xunit.extensibility.core (2.6.2)
     xunit.runner.visualstudio (2.5.4)
+    xunit.runners (2.0)
