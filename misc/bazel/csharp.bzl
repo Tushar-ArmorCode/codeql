@@ -23,12 +23,15 @@ def codeql_xunit_test(name, **kwargs):
         "@paket.main//xunit.runner.utility",
     ]
 
+    tags = kwargs.pop("tags", []) + ["csharp"]
+
     csharp_test(
         name = name,
         deps = deps,
         srcs = srcs,
         nullable = nullable,
         target_frameworks = target_frameworks,
+        tags = tags,
         **kwargs
     )
 

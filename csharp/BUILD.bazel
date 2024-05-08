@@ -73,3 +73,13 @@ dist(
     prefix = "csharp",
     visibility = ["//visibility:public"],
 )
+
+test_suite(
+    name = "unit-tests",
+    tags = ["csharp"],
+    tests = [
+        "//cpp/autobuilder/Semmle.Autobuild.Cpp.Tests",
+        "//csharp/autobuilder/Semmle.Autobuild.CSharp.Tests",
+        "//csharp/extractor/Semmle.Extraction.Tests",
+    ],
+)
