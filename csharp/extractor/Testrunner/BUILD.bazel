@@ -1,16 +1,1 @@
-load(
-    "//misc/bazel:csharp.bzl",
-    "codeql_csharp_library",
-)
-
-codeql_csharp_library(
-    name = "Testrunner",
-    srcs = glob([
-        "*.cs",
-    ]),
-    visibility = ["//visibility:public"],
-    deps = [
-        "@paket.main//xunit",
-        "@paket.main//xunit.runner.utility",
-    ],
-)
+exports_files(["TestRunner.cs"])

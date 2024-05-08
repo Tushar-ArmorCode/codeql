@@ -8,6 +8,7 @@ codeql_csharp_library(
     srcs = glob([
         "Entities/**/*.cs",
         "Extractor/**/*.cs",
+        "Properties/*.cs",
         "*.cs",
     ]),  # TODO debug constants
     visibility = ["//csharp:__subpackages__"],

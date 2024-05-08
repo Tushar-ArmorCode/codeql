@@ -9,6 +9,7 @@ codeql_csharp_library(
         "Logging/**/*.cs",
         "ToolStatusPage/**/*.cs",
         "*.cs",
+        "Properties/*.cs",
     ]),
     visibility = ["//visibility:public"],
     deps = [

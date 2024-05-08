@@ -6,6 +6,7 @@ load(
 codeql_csharp_library(
     name = "Semmle.Extraction.CSharp.Util",
     srcs = glob([
+        "Properties/*.cs",
         "*.cs",
     ]),
     visibility = ["//csharp:__subpackages__"],
